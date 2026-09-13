@@ -122,7 +122,7 @@ npm install -g opencode-ai
 Clone (or download) this repo, then copy its contents into the **global opencode config directory**:
 
 ```bash
-git clone https://github.com/your-user/mevaopencode.git opencodemeva
+git clone https://github.com/your-user/opencodemeva.git opencodemeva
 cd opencodemeva
 
 # Windows (PowerShell)
