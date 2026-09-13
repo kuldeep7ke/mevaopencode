@@ -98,7 +98,7 @@ Optional per-feature runtimes: any stack tool you actually develop with (python,
 
 ### Network
 
-- **First launch:** opencode downloads its model provider SDKs; enabled MCP servers are fetched on demand (`context7`, `grep` are remote; `playwright`, `memory`, `sequential-thinking` via `npx`). Playwright may need `npx playwright install chromium` the first time.
+- **First launch:** opencode downloads its model provider SDKs; enabled MCP servers are fetched on demand (`context7`, `grep` are remote; `playwright`, `memory`, `sequential-thinking` via `npx`). Playwright drives your installed Chrome — no browser download required.
 - **Runtime:** model API access required (Anthropic, OpenAI, or any provider configured in opencode).
 
 ---
@@ -204,7 +204,7 @@ Ships with safe defaults:
   - ✅ **enabled** (no keys, low context cost):
     - `context7` — up-to-date library/framework docs (remote)
     - `grep` — free code search across millions of public packages (remote)
-    - `playwright` — official cross-browser automation, headless
+    - `playwright` — official cross-browser automation, headless, uses your installed Chrome (`--channel chrome`, no download)
     - `memory` — official persistent memory server
     - `sequential-thinking` — structured multi-step reasoning
   - ❌ **configured, disabled by default** — flip `"enabled": true` when needed:
