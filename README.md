@@ -204,7 +204,7 @@ Ships with safe defaults:
   - ✅ **enabled** (no keys, low context cost):
     - `context7` — up-to-date library/framework docs (remote)
     - `grep` — free code search across millions of public packages (remote)
-    - `playwright` — official cross-browser automation, headless, uses your installed Chrome (`--channel chrome`, no download)
+    - `playwright` — official cross-browser automation, headless, uses your installed Chrome (`--browser chrome`, no download)
     - `memory` — official persistent memory server
     - `sequential-thinking` — structured multi-step reasoning
   - ❌ **configured, disabled by default** — flip `"enabled": true` when needed:
