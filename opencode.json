@@ -79,7 +79,8 @@
     },
     "github": {
       "type": "local",
-      "command": ["gh", "mcp"],
+      "command": ["github-mcp-server", "stdio"],
+      "environment": { "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PERSONAL_ACCESS_TOKEN}" },
       "enabled": false
     },
     "chrome-devtools": {

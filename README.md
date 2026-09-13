@@ -208,13 +208,27 @@ Ships with safe defaults:
     - `memory` — official persistent memory server
     - `sequential-thinking` — structured multi-step reasoning
   - ❌ **configured, disabled by default** — flip `"enabled": true` when needed:
-    - `github` — official `gh mcp` (uses your GitHub CLI login; token-heavy, so opt-in)
+    - `github` — official `github-mcp-server` (needs `GITHUB_PERSONAL_ACCESS_TOKEN`; see "[Enabling GitHub MCP](#enabling-github-mcp)" below)
     - `chrome-devtools` — browser debugging, profiling, screenshots
     - `filesystem` — official scoped file access
     - `firecrawl` — web scraping (needs `FIRECRAWL_API_KEY`)
     - `tavily` — AI web search (needs `TAVILY_API_KEY`)
     - `postgres` — official Postgres server (needs `DATABASE_URI`)
     - `sentry` — error/issues context (official OAuth remote)
+
+### Enabling GitHub MCP
+
+With no Docker, run the official `github-mcp-server` binary. Two steps:
+
+1. **Get the binary** — download `github-mcp-server_Windows_x86_64.zip` (or `_Linux_*` / `_macOS_*`) from [github/github-mcp-server releases](https://github.com/github/github-mcp-server/releases) and put `github-mcp-server` (`.exe`) on your `PATH`. (Alternative with Docker: `ghcr.io/github/github-mcp-server` + OAuth, no token — see the project docs.)
+2. **Set a token** — create a fine-grained PAT (https://github.com/settings/tokens) with `repo:read`, `issues:read` and set it for your user session:
+   ```bash
+   # Windows (PowerShell) — replace <TOKEN> with your PAT
+   setx GITHUB_PERSONAL_ACCESS_TOKEN "<TOKEN>"
+   # macOS / Linux
+   echo 'export GITHUB_PERSONAL_ACCESS_TOKEN="<TOKEN>"' >> ~/.zshrc
+   ```
+   Then flip `"enabled": true` for the `github` entry and restart opencode.
 
 ### Model providers
 
