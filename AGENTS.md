@@ -29,6 +29,7 @@ These rules apply in all projects. Project-level `AGENTS.md` may refine but not 
 - After implementation, run `/code-review` (or `@code-reviewer`); before shipping security-sensitive changes, run `/security`.
 - For iteration, prefer small verifiable steps over one giant change.
 - When the work is well-defined and small, just do it (`@fixer`, `@fast-coder` are optimized for that).
+- Use MCP tools over guessing APIs: check `context7`/`grep` before assuming library signatures; only enable key/network-heavy servers (`github`, `firecrawl`, `playwright`) when the task actually needs them.
 
 ## 4. Coding style
 

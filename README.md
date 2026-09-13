@@ -98,7 +98,7 @@ Optional per-feature runtimes: any stack tool you actually develop with (python,
 
 ### Network
 
-- **First launch:** opencode downloads its model provider SDKs; enabled MCP servers (`context7`, `memory`, `sequential-thinking`) are fetched via `npx` on demand.
+- **First launch:** opencode downloads its model provider SDKs; enabled MCP servers are fetched on demand (`context7`, `grep` are remote; `playwright`, `memory`, `sequential-thinking` via `npx`). Playwright may need `npx playwright install chromium` the first time.
 - **Runtime:** model API access required (Anthropic, OpenAI, or any provider configured in opencode).
 
 ---
@@ -200,9 +200,21 @@ Ships with safe defaults:
 
 - **Permissions** — `.env*` never read/edited, `~/.ssh/**`, `~/.aws/**` etc. blocked, destructive bash verbs prompt (`ask`/`doom_loop`).
 - **Plugins** — enabled by default (the 9 listed above).
-- **MCP servers**:
-  - ✅ enabled: `context7` (docs lookup), `memory` (persistent memory), `sequential-thinking`
-  - ❌ disabled by default: `chrome-devtools`, `github`, `filesystem`, `firecrawl` — flip `"enabled": true` to use.
+- **MCP servers** — a curated catalog of the most-used, open-source, officially recommended servers:
+  - ✅ **enabled** (no keys, low context cost):
+    - `context7` — up-to-date library/framework docs (remote)
+    - `grep` — free code search across millions of public packages (remote)
+    - `playwright` — official cross-browser automation, headless
+    - `memory` — official persistent memory server
+    - `sequential-thinking` — structured multi-step reasoning
+  - ❌ **configured, disabled by default** — flip `"enabled": true` when needed:
+    - `github` — official `gh mcp` (uses your GitHub CLI login; token-heavy, so opt-in)
+    - `chrome-devtools` — browser debugging, profiling, screenshots
+    - `filesystem` — official scoped file access
+    - `firecrawl` — web scraping (needs `FIRECRAWL_API_KEY`)
+    - `tavily` — AI web search (needs `TAVILY_API_KEY`)
+    - `postgres` — official Postgres server (needs `DATABASE_URI`)
+    - `sentry` — error/issues context (official OAuth remote)
 
 ### Model providers
 
@@ -218,7 +230,7 @@ Agents use **your default opencode model**. To pin a different model globally or
 
 | Integration | How | Enabled |
 | --- | --- | --- |
-| **MCP servers** | `opencode.json` → `mcp` | 3 on, 4 off |
+| **MCP servers** | `opencode.json` → `mcp` | 5 on, 7 off (see [Configuration](#configuration)) |
 | **Cloudflare** | bundled skills (`cloudflare`, `wrangler`, `durable-objects`, ...) | on demand |
 | **Supabase** | add your project MCP (`https://mcp.supabase.com/mcp?project_ref=<ref>`) | add manually |
 | **GitHub** | `@github` agent + `github-ops` skill + `gh` CLI | on demand |

@@ -53,8 +53,18 @@
   },
   "mcp": {
     "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    "grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "enabled": true
+    },
+    "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@context7/mcp-server"],
+      "command": ["npx", "-y", "@playwright/mcp", "--headless"],
       "enabled": true
     },
     "memory": {
@@ -67,15 +77,14 @@
       "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
       "enabled": true
     },
+    "github": {
+      "type": "local",
+      "command": ["gh", "mcp"],
+      "enabled": false
+    },
     "chrome-devtools": {
       "type": "local",
       "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": false
-    },
-    "github": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
-      "environment": { "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PERSONAL_ACCESS_TOKEN}" },
       "enabled": false
     },
     "filesystem": {
@@ -87,6 +96,24 @@
       "type": "local",
       "command": ["npx", "-y", "firecrawl-mcp"],
       "environment": { "FIRECRAWL_API_KEY": "{env:FIRECRAWL_API_KEY}" },
+      "enabled": false
+    },
+    "postgres": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-postgres"],
+      "environment": { "DATABASE_URI": "{env:DATABASE_URI}" },
+      "enabled": false
+    },
+    "tavily": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-tavily"],
+      "environment": { "TAVILY_API_KEY": "{env:TAVILY_API_KEY}" },
+      "enabled": false
+    },
+    "sentry": {
+      "type": "remote",
+      "url": "https://mcp.sentry.dev/mcp",
+      "oauth": {},
       "enabled": false
     }
   }
