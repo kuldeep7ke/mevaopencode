@@ -1,6 +1,6 @@
 # opencodemeva — All-in-One OpenCode Configuration
 
-**54 agents · 83 commands · 295 skills · 9 plugins · MCP servers** — a complete, pre-configured setup for [opencode](https://opencode.ai), the open-source AI coding agent.
+**54 agents · 83 commands · 295 skills · 9 plugins · MCP servers · built-in LSP** — a complete, pre-configured setup for [opencode](https://opencode.ai), the open-source AI coding agent.
 
 Searching for "opencode config", "opencode agents", "opencode skills", or an "everything-opencode" collection of agents, commands, and MCP servers? This pack merges six popular open-source repos into a single, validated, ready-to-install configuration. Clone it, copy it into `~/.config/opencode/`, restart opencode, and you instantly get a full team of coding agents, a library of slash commands, hundreds of skill playbooks, and safety plugins.
 
@@ -11,6 +11,7 @@ Searching for "opencode config", "opencode agents", "opencode skills", or an "ev
 - **295 skill packages** — patterns, workflows, and audits across every major stack
 - **9 plugins** — secret protection, dangerous-command blocking, type checking, session summaries, and more
 - **Preconfigured MCP servers** — Context7, GitHub, Playwright, Supabase, memory, sequential-thinking, and more
+- **Built-in LSP servers** — editor-grade diagnostics and navigation feedback for the agent across TypeScript, Python, Go, Rust, Java, C/C++, PHP, and more (started on demand)
 
 ---
 
@@ -203,6 +204,7 @@ Ships with safe defaults:
 
 - **Permissions** — `.env*` never read/edited, `~/.ssh/**`, `~/.aws/**` etc. blocked, destructive bash verbs prompt (`ask`/`doom_loop`).
 - **Plugins** — enabled by default (the 9 listed above).
+- **LSP servers** — enabled (`"lsp": true`); opencode's built-in language servers start on demand when a matching file is opened (TypeScript, Python, Go, Rust, Java, C/C++, PHP, and more). Disable with `"lsp": false`.
 - **MCP servers** — a curated catalog of the most-used, open-source, officially recommended servers:
   - ✅ **enabled** (no keys, low context cost):
     - `context7` — up-to-date library/framework docs (remote)
@@ -248,6 +250,7 @@ Agents use **your default opencode model**. To pin a different model globally or
 | Integration | How | Enabled |
 | --- | --- | --- |
 | **MCP servers** | `opencode.json` → `mcp` | 5 on, 7 off (see [Configuration](#configuration)) |
+| **LSP servers** | `opencode.json` → `lsp` | built-ins enabled, on demand |
 | **Cloudflare** | bundled skills (`cloudflare`, `wrangler`, `durable-objects`, ...) | on demand |
 | **Supabase** | add your project MCP (`https://mcp.supabase.com/mcp?project_ref=<ref>`) | add manually |
 | **GitHub** | `@github` agent + `github-ops` skill + `gh` CLI | on demand |
