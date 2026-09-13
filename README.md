@@ -1,13 +1,16 @@
-# opencodemeva
+# opencodemeva — All-in-One OpenCode Configuration
 
-**All-in-one opencode configuration pack** — merged from six "everything-opencode" style open-source repos into a single, validated, ready-to-install config.
+**54 agents · 83 commands · 295 skills · 9 plugins · MCP servers** — a complete, pre-configured setup for [opencode](https://opencode.ai), the open-source AI coding agent.
 
-Clone it, copy it into `~/.config/opencode/`, restart opencode, and you instantly get a full team of agents, a library of commands, hundreds of skills, and safety plugins.
+Searching for "opencode config", "opencode agents", "opencode skills", or an "everything-opencode" collection of agents, commands, and MCP servers? This pack merges six popular open-source repos into a single, validated, ready-to-install configuration. Clone it, copy it into `~/.config/opencode/`, restart opencode, and you instantly get a full team of coding agents, a library of slash commands, hundreds of skill playbooks, and safety plugins.
 
-- **54 agents** (`@code-reviewer`, `@tdd-guide`, `@security-reviewer`, `@planner`, `@leader`, stack specialists, vibe-coding tools, and more)
-- **83 commands** (`/plan`, `/tdd`, `/code-review`, `/security`, `/build-fix`, `/e2e`, ...)
-- **295 skills** (patterns, workflows, and audits across every major stack)
-- **9 plugins** (secret protection, dangerous-command blocking, type checking, session summaries, and more)
+**What you get:**
+
+- **54 AI agents** (`@code-reviewer`, `@tdd-guide`, `@security-reviewer`, `@planner`, `@leader`, stack specialists, vibe-coding tools, and more) for planning, review, security, TDD, and every major stack — Next.js, React, Nuxt, Django, Laravel, Spring Boot, Flutter, Android, Go, Rust, Python, .NET, Swift, and more
+- **83 slash commands** (`/plan`, `/tdd`, `/code-review`, `/security`, `/build-fix`, `/e2e`, ...) for repeatable agent workflows
+- **295 skill packages** — patterns, workflows, and audits across every major stack
+- **9 plugins** — secret protection, dangerous-command blocking, type checking, session summaries, and more
+- **Preconfigured MCP servers** — Context7, GitHub, Playwright, Supabase, memory, sequential-thinking, and more
 
 ---
 
@@ -372,6 +375,21 @@ Merge rules (baked into `scripts/merge.mjs`):
 - **Dedup priority:** defuj > noahain > jakezp > karma > speedoa > kevinlupera (first repo wins).
 - **Normalization:** agent refs in commands are de-quoted/un-namespaced; `EO-` prefixes stripped; skill names forced to `kebab-case`; `tools:` converted to `permission`; per-agent `model:` removed so all agents use the session default.
 - **Selective plugin inclusion:** only self-contained plugins known to work are shipped.
+
+---
+
+## FAQ
+
+**People also search for:** opencode config · opencode agents · opencode commands · opencode skills · opencode plugins · opencode MCP setup · everything-opencode · everything-claude-code · claude code configuration collection · AI coding agent setup · programming agents for opencode.
+
+| Question | Answer |
+| --- | --- |
+| **What is this?** | An all-in-one configuration pack for OpenCode — the open-source, terminal-based AI coding agent. It adds 54 specialized subagents, 83 slash commands, 295 skills, 9 plugins, and preconfigured MCP servers to a stock opencode install. |
+| **How do I install opencode agents, commands, and skills?** | Copy the pack into `~/.config/opencode/` (plus `opencode.json`) and restart opencode. OpenCode auto-detects it. See [Installation](#installation). |
+| **Does this work with Claude Code?** | Skills use the portable SKILL.md format shared with Claude Code and other AI coding CLIs, but the pack is *packaged for opencode*. Use it to bootstrap or extend an opencode setup. |
+| **Which stacks are covered?** | Next.js, React, Nuxt, Vue, Node.js, Django, FastAPI, Laravel, CodeIgniter, Spring Boot, Rust, Go, Python, C#, Flutter, Android/Kotlin, Swift, C++, Angular — plus review, security, TDD, E2E, refactoring, SEO, and database specialists. |
+| **What MCP servers are included?** | Enabled by default: Context7 (live docs), grep.app, Playwright (installed Chrome), memory, sequential-thinking. Opt-in: GitHub, Chrome DevTools, filesystem, Firecrawl, Postgres, Tavily, Sentry, Supabase. See [Configuration](#configuration). |
+| **How big is the pack?** | 54 agents, 83 commands, 295 skills, 9 plugins — every component validated with `npm run validate`. |
 
 ---
 
